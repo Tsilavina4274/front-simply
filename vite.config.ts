@@ -1,10 +1,6 @@
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
-})  
+export default {
+  root: './src',  // Si ton index.html est dans un sous-dossier 'src', par exemple
+  build: {
+    outDir: 'dist',  // Dossier de sortie du build
+  }
+}
