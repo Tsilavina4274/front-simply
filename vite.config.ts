@@ -1,18 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// Vite config for the frontend project. We set `root` to ./src so source files
-// are colocated there, but output the build to ../dist (frontend/dist) which
-// is what Vercel expects when using static builds.
+// https://vitejs.dev/config/
 export default defineConfig({
-  root: './src',
-  base: '/',
   plugins: [react()],
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
+    rollupOptions: {
+      input: 'index.html', // <- c’est ici que Vite va chercher ton point d’entrée
+    },
   },
-  server: {
-    port: 5173,
-  },
-});
+})
