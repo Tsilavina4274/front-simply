@@ -1,12 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  root: '.', // la racine est bien frontend
   build: {
+    outDir: 'dist',
     rollupOptions: {
-      input: 'index.html', // <- c’est ici que Vite va chercher ton point d’entrée
+      input: './index.html', // chemin absolu relatif au projet
     },
   },
 })
